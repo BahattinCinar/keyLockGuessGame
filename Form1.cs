@@ -35,11 +35,6 @@ namespace keyLockGuessGame
             {
                 goto numGenerate;
             }
-
-            for(int i = 0; i<3;i++)
-            {
-                listBox1.Items.Add(a[i]);
-            }
         }
 
         public void reStart()
@@ -124,16 +119,18 @@ namespace keyLockGuessGame
 
             if(textBox1.Enabled == false && textBox2.Enabled == false && textBox3.Enabled == false)
             {
-                int mod = 3;
-
-                mod = right % mod;
-
-                if(mod == 0)
+                if(right == 3)
                 {
-                    mod += 1;
+                    label4.Text = $"Your score 100";
                 }
-                
-                label4.Text = $"Your score = {100 / mod}";
+                else if(right == 2)
+                {
+                    label4.Text = $"Your score {100 / 2}";
+                }
+                else
+                {
+                    label4.Text = $"Your score {100 / 3}";
+                }
             }
         }
 
