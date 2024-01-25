@@ -51,9 +51,9 @@ namespace keyLockGuessGame
            //1 den 10 a kadar 3 adet random sayı üret ürettiğin sayıları 1 ila 3 arasında sırala (sırayı diziye yaz) ipucu kısmında ne lazım ise göster
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int text1,text2,text3;
+public void answers()
+{
+int text1,text2,text3;
 
             text1 = int.Parse(textBox1.Text);
             text2 = int.Parse(textBox2.Text);
@@ -89,6 +89,11 @@ namespace keyLockGuessGame
                 textBox3.BackColor = Color.Red;
                 textBox3.ForeColor = Color.Black;
             }
+}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            answers();
         }
 
         private void Form1_Load(object sender, EventArgs e)
