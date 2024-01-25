@@ -68,6 +68,7 @@ int text1,text2,text3;
             {
                 textBox1.BackColor = Color.Red;
                 textBox1.ForeColor = Color.Black;
+point-=;
             }
             if (text2 == a[1])
             {
@@ -78,6 +79,7 @@ int text1,text2,text3;
             {
                 textBox2.BackColor = Color.Red;
                 textBox2.ForeColor = Color.Black;
+point-=;
             }
             if (text3 == a[2])
             {
@@ -88,12 +90,22 @@ int text1,text2,text3;
             {
                 textBox3.BackColor = Color.Red;
                 textBox3.ForeColor = Color.Black;
+point-=;
             }
 }
 
         private void button1_Click(object sender, EventArgs e)
         {
+int point=4;
             answers();
+if(point==0)
+{
+//butonun altında kırmızı kaybettiniz yazıcak
+}
+else
+{
+//butonun altında 100 / puan yazılıcak
+}
         }
 
         private void Form1_Load(object sender, EventArgs e)
