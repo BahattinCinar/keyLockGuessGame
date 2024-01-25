@@ -48,7 +48,7 @@ namespace keyLockGuessGame
 
         public void hints()
         {
-
+           //1 den 10 a kadar 3 adet random sayı üret ürettiğin sayıları 1 ila 3 arasında sırala (sırayı diziye yaz) ipucu kısmında ne lazım ise göster
         }
 
         private void button1_Click(object sender, EventArgs e)
