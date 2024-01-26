@@ -32,11 +32,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 208);
+            this.textBox1.Location = new System.Drawing.Point(124, 175);
             this.textBox1.MaxLength = 1;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(51, 20);
@@ -44,7 +45,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 208);
+            this.textBox2.Location = new System.Drawing.Point(181, 175);
             this.textBox2.MaxLength = 1;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(51, 20);
@@ -52,7 +53,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(244, 208);
+            this.textBox3.Location = new System.Drawing.Point(238, 175);
             this.textBox3.MaxLength = 1;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(51, 20);
@@ -60,7 +61,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(187, 234);
+            this.button1.Location = new System.Drawing.Point(181, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(51, 22);
             this.button1.TabIndex = 1;
@@ -68,9 +69,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(121, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(301, 261);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -88,6 +99,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

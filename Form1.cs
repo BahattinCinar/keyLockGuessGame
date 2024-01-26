@@ -21,6 +21,7 @@ namespace keyLockGuessGame
         }
 
         int[] a = new int[3];
+        int point = 4;
 
         public void rightNums()
         {
@@ -51,9 +52,9 @@ namespace keyLockGuessGame
            //1 den 10 a kadar 3 adet random sayı üret ürettiğin sayıları 1 ila 3 arasında sırala (sırayı diziye yaz) ipucu kısmında ne lazım ise göster
         }
 
-public void answers()
-{
-int text1,text2,text3;
+        public void answers()
+        {
+            int text1,text2,text3;
 
             text1 = int.Parse(textBox1.Text);
             text2 = int.Parse(textBox2.Text);
@@ -68,7 +69,7 @@ int text1,text2,text3;
             {
                 textBox1.BackColor = Color.Red;
                 textBox1.ForeColor = Color.Black;
-point-=;
+                point-= point;
             }
             if (text2 == a[1])
             {
@@ -79,7 +80,7 @@ point-=;
             {
                 textBox2.BackColor = Color.Red;
                 textBox2.ForeColor = Color.Black;
-point-=;
+                point -= point;
             }
             if (text3 == a[2])
             {
@@ -90,22 +91,31 @@ point-=;
             {
                 textBox3.BackColor = Color.Red;
                 textBox3.ForeColor = Color.Black;
-point-=;
+                point -= point;
             }
-}
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-int point=4;
             answers();
-if(point==0)
-{
-//butonun altında kırmızı kaybettiniz yazıcak
-}
-else
-{
-//butonun altında 100 / puan yazılıcak
-}
+
+            if (point == 0)
+            {
+                label1.Text = "You lose try again";
+                label1.ForeColor = Color.Red;
+
+                textBox1.Text = Convert.ToString(a[0]);
+                textBox2.Text = Convert.ToString(a[1]);
+                textBox3.Text = Convert.ToString(a[2]);
+            }
+            else if (int.Parse(textBox1.Text) == a[0] && int.Parse(textBox2.Text) == a[1] && int.Parse(textBox3.Text) == a[2] && point > 0)
+            {
+                label1.Text = $"You winn. Your score is = {100 / point}";
+            }
+            else
+            {
+                label1.Text = $"Your point is = {100 / point}";
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
