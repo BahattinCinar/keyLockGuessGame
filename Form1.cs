@@ -21,6 +21,7 @@ namespace keyLockGuessGame
         }
 
         int[] a = new int[3];
+        int[] b = new int[3];
         int point = 4;
 
         public void rightNums()
@@ -29,7 +30,7 @@ namespace keyLockGuessGame
 
             int rndm;
 
-            for (int i = 0; i < 3; i++) 
+            for (int i = 0; i < 3; i++)
             {
             rndm:
                 rndm = RightNums.Next(1,10);
@@ -46,10 +47,66 @@ namespace keyLockGuessGame
                 }
             }
         }
+        
+        private void labels()
+        {
+            label1.Visible = false;
+
+            label2.Text = "One number is correct and well placed";
+            label6.Text = "Nothing is right";
+            label10.Text = "One number is correct but wrongly placed";
+            label14.Text = "Two number is correct but wrongly placed";
+
+            label19.Text = Convert.ToString(point);
+        }
 
         public void hints()
         {
-           //1 den 10 a kadar 3 adet random sayı üret ürettiğin sayıları 1 ila 3 arasında sırala (sırayı diziye yaz) ipucu kısmında ne lazım ise göster
+            //fake num gen
+            
+            Random hints = new Random();
+
+            int rndm;
+
+            for(int i = 0; i < 3; i++)
+            {
+            rndm:
+                rndm = hints.Next(1, 10);
+                int aof = Array.IndexOf(a, rndm);
+                int aif = Array.IndexOf(b, rndm);
+
+                if(aif == -1 && aof == -1)
+                {
+                    b[i] = rndm;
+                }
+                else
+                {
+                    goto rndm;
+                }
+            }
+
+            //hints locate
+
+            //label2
+            label3.Text = Convert.ToString(b[2]);
+            label4.Text = Convert.ToString(a[1]);
+            label5.Text = Convert.ToString(b[0]);
+
+            //label6
+            label7.Text = Convert.ToString(b[0]);
+            label8.Text = Convert.ToString(b[1]);
+            label9.Text = Convert.ToString(b[2]);
+
+            //label10
+            label11.Text = Convert.ToString(a[2]);
+            label12.Text = Convert.ToString(b[2]);
+            label13.Text = Convert.ToString(b[1]);
+
+            //label14
+            label15.Text = Convert.ToString(a[2]);
+            label16.Text = Convert.ToString(b[1]);
+            label17.Text = Convert.ToString(a[0]);
+
         }
 
         public void answers()
@@ -69,7 +126,6 @@ namespace keyLockGuessGame
             {
                 textBox1.BackColor = Color.Red;
                 textBox1.ForeColor = Color.Black;
-                point-= point;
             }
             if (text2 == a[1])
             {
@@ -80,7 +136,6 @@ namespace keyLockGuessGame
             {
                 textBox2.BackColor = Color.Red;
                 textBox2.ForeColor = Color.Black;
-                point -= point;
             }
             if (text3 == a[2])
             {
@@ -91,15 +146,18 @@ namespace keyLockGuessGame
             {
                 textBox3.BackColor = Color.Red;
                 textBox3.ForeColor = Color.Black;
-                point -= point;
             }
+
+            label1.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            point--;
+
             answers();
 
-            if (point == 0)
+            if (point == 0 && int.Parse(textBox1.Text) != a[0] && int.Parse(textBox2.Text) != a[1] && int.Parse(textBox3.Text) != a[2])
             {
                 label1.Text = "You lose try again";
                 label1.ForeColor = Color.Red;
@@ -110,17 +168,27 @@ namespace keyLockGuessGame
             }
             else if (int.Parse(textBox1.Text) == a[0] && int.Parse(textBox2.Text) == a[1] && int.Parse(textBox3.Text) == a[2] && point > 0)
             {
-                label1.Text = $"You winn. Your score is = {100 / point}";
+                
+                label1.Text = $"You winn. Your score is = {25 * point}";
+            }
+            else if (point == 0 && int.Parse(textBox1.Text) == a[0] && int.Parse(textBox2.Text) == a[1] && int.Parse(textBox3.Text) == a[2])
+            {
+                label1.Text = $"You lucky man you win last right. Here is your score : 25";
             }
             else
             {
-                label1.Text = $"Your point is = {100 / point}";
+                label1.Text = $"Your score is = {25 * point}";
             }
+
+            label19.Text = Convert.ToString(point);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             rightNums();
+            labels();
+            hints();
+            
         }
     }
 }
